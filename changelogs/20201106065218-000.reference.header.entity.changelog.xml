@@ -1,0 +1,15 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+ <changeSet author="kms" id="20201106065218-01" runAlways="true">
+  <insert tableName="reference_header_entity">
+   <column name="id" value="d0c2e12d-3a5f-4e3f-b333-0103ab939239"/>
+   <column name="active" valueBoolean="true"/>
+   <column name="branch_id"/>
+   <column name="created" valueDate="2020-11-06T06:52:19.000000"/>
+   <column name="modified" valueDate="2020-11-06T06:52:19.000000"/>
+   <column name="tenant_id" value="d7de5c95-b0b4-4200-8c9e-2834026d9dc0"/>
+   <column name="description" value="[{&quot;key&quot;:&quot;en&quot;,&quot;value&quot;:&quot;&quot;},{&quot;key&quot;:&quot;id&quot;,&quot;value&quot;:&quot;&quot;}]"/>
+   <column name="type" value="SAMPLE"/>
+  </insert>
+ </changeSet>
+</databaseChangeLog>
