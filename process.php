@@ -23,9 +23,8 @@ if(isset($_FILES)){
   $xml->startElement('changeSet');
   $xml->writeAttribute('author', 'kms');
   $xml->writeAttribute('id', date('Ymdhis').'-01');
-  $xml->writeAttribute('runAlways', 'true');
 
-  if(isset($_POST['sub_table'])){ //kalo ada table tambahan
+  if(isset($_POST['sub_table']) && !empty($_POST['sub_table'])){ //kalo ada table tambahan
     $sub_table = $_POST['sub_table'];
     $sub_prefix = $_POST['sub_prefix'];
 
@@ -43,7 +42,6 @@ if(isset($_FILES)){
     $xml_sub->startElement('changeSet');
     $xml_sub->writeAttribute('author', 'kms');
     $xml_sub->writeAttribute('id', date('Ymdhis').'-02');
-    $xml_sub->writeAttribute('runAlways', 'true');
   }
 
   $type = '';

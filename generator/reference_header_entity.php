@@ -1,5 +1,5 @@
 <?php
-$desc = '[{"key":"en","value":"'.$row[3].'"},{"key":"id","value":"'.$row[4].'"}]';
+$desc = '[{"key":"en","value":"'.$row[1].'"},{"key":"id","value":"'.$row[2].'"}]';
 
 $xml->startElement('column');
 $xml->writeAttribute('name', 'description');
