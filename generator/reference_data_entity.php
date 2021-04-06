@@ -30,6 +30,10 @@ $xml->writeAttribute('name', 'sequence');
 $xml->writeAttribute('valueNumeric', $sequence);
 $xml->endElement(); //end column
 $xml->startElement('column');
-$xml->writeAttribute('name', 'type');
+$xml->writeAttribute('name', 'reference_type');
 $xml->writeAttribute('value', $row[0]);
+$xml->endElement(); //end column
+$xml->startElement('column');
+$xml->writeAttribute('name', 'filter');
+$xml->writeAttribute('value', $row[5]);
 $xml->endElement(); //end column
