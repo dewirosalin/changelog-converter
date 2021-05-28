@@ -31,6 +31,10 @@
                 <option value="mcu_package_entity">MCU Package</option>
                 <option value="mcu_package_item_entity">MCU Package Item</option>
                 <option value="unit_of_measurement_entity">Unit of Measurement</option>
+                <option value="service_item_entity">Service Item</option>
+                <option value="tariff_formula_entity">Tariff Formula</option>
+                <option value="tariff_definition_entity">Tariff Definition</option>
+                <option value="privilege_entity">Privilege</option>
               </select>
             </div>
             <div id="show-if-diagnoses" class="d-none">
@@ -91,6 +95,18 @@
           if(!$("#show-if-diagnoses").hasClass('d-none')){
             data.append('sub_prefix', $("#prefix-sub").val());
             data.append('sub_table', $("#sub-table").val());
+          }
+
+          if($("#table-name").val() == 'service_item_entity'){
+            //will generate service item assignment changelog also
+            data.append('sub_prefix', '001');
+            data.append('sub_table', 'service_item_assignment_entity');
+          }
+
+          if($("#table-name").val() == 'privilege_entity'){
+            //will generate service item assignment changelog also
+            data.append('sub_prefix', '001');
+            data.append('sub_table', 'role_entity_privileges');
           }
 
           $.ajax({
