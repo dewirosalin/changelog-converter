@@ -3,6 +3,7 @@ require __DIR__.'/vendor/autoload.php';
 use Ramsey\Uuid\Uuid;
 
 if(isset($_FILES)){
+  $results = [];
   $table = $_POST['table'];
   $tmpName = $_FILES['file-0']['tmp_name'];
   $csvAsArray = array_map('str_getcsv', file($tmpName));
@@ -27,9 +28,10 @@ if(isset($_FILES)){
   if(isset($_POST['sub_table']) && !empty($_POST['sub_table'])){ //kalo ada table tambahan
     $sub_table = $_POST['sub_table'];
     $sub_prefix = $_POST['sub_prefix'];
+    $sub_changelog_name = 'changelogs/'.date('YmdHis').'-'.$sub_prefix.'.'.str_replace('_', '.', $sub_table).'.changelog.xml';
 
     $xml_sub = new XMLWriter();
-    $xml_sub->openURI('changelogs/'.date('YmdHis').'-'.$sub_prefix.'.'.str_replace('_', '.', $sub_table).'.changelog.xml');
+    $xml_sub->openURI($sub_changelog_name);
     $xml_sub->setIndent(true);
     $xml_sub->startDocument('1.1', 'UTF-8', 'no');
     $xml_sub->startElement('databaseChangeLog');
@@ -114,6 +116,8 @@ if(isset($_FILES)){
 
   $xml->flush();
 
+  array_push($results, $changelog_name);
+
   if(isset($xml_sub)){
     $xml_sub->endElement(); //end changeSet
 
@@ -121,7 +125,8 @@ if(isset($_FILES)){
     $xml_sub->endDocument();
 
     $xml_sub->flush();
+    array_push($results, $sub_changelog_name);
   }
 
-  echo $changelog_name;
+  echo json_encode($results);
 }

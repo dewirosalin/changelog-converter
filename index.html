@@ -117,7 +117,11 @@
             method: "post",
             success: function(data){
               console.log(data);
-              $("#download-box").html('<a download href="'+data+'" class="btn btn-primary">Download Here</a>');
+              let result = $.parseJSON(data);
+              $("#download-box").html('');
+              $.each(result, function(filename){
+                $("#download-box").append('<a download href="'+data+'" class="btn btn-primary d-inline-block mr-1">Download Here</a>');
+              });
             }
           });
         });
