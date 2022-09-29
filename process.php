@@ -71,10 +71,6 @@ if(isset($_FILES)){
     $xml->writeAttribute('name', 'modified');
     $xml->writeAttribute('valueDate', date("Y-m-d\TH:i:s.000000"));
     $xml->endElement(); //end column
-    $xml->startElement('column');
-    $xml->writeAttribute('name', 'tenant_id');
-    $xml->writeAttribute('value', 'd7de5c95-b0b4-4200-8c9e-2834026d9dc0');
-    $xml->endElement(); //end column
     include 'generator/'.$table.'.php';
     $xml->endElement(); //end insert
 
